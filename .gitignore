@@ -1,0 +1,28 @@
+# Python
+*.pyc
+*.pyo
+__pycache__/
+*.env
+
+# Django
+db.sqlite3
+media/
+staticfiles/
+*/migrations/*.py
+!*/migrations/__init__.py
+
+# Logs
+*.log
+
+# Docker
+*.pid
+.env
+docker-compose.override.yml
+
+# PostgreSQL
+pg_data/
+
+# IDE/Editor
+.vscode/
+.idea/
+*.swp
