@@ -2,10 +2,11 @@ from django.urls import path,include
 from rest_framework.routers import DefaultRouter
 
 from .views import TagListView, CategoryListView, PostListView, PostDetailView, PostDetailSlugView, ProjectViewSet, \
-    SkillCategoryViewSet, SkillViewSet
+    SkillCategoryViewSet, SkillViewSet, CvViewSet
 
 router = DefaultRouter()
 router.register(r"projects", ProjectViewSet, basename="project")
+router.register(r"cv", CvViewSet, basename="cv")
 router.register(r"skill-categories", SkillCategoryViewSet, basename="skill-category")
 router.register(r"skills", SkillViewSet, basename="skill")
 

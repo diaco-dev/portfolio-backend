@@ -194,3 +194,16 @@ class ProjectChallenge(GenericModel):
 
     def __str__(self):
         return f"{self.project.title} - {self.challenge[:40]}..."
+
+
+#--------------------- cv ----------------------------#
+class CV(GenericModel):
+    title = models.CharField(
+        max_length=200
+    )
+    file = models.FileField(
+        upload_to='post/',
+        storage = BlogImageStorage(),
+        blank=True,
+        null=True
+    )

@@ -4,7 +4,7 @@ from rest_framework import generics, mixins, viewsets
 from rest_framework.generics import GenericAPIView
 from rest_framework.permissions import AllowAny
 
-from .models import Tag, Category, Post, Project, SkillCategory, Skill
+from .models import Tag, Category, Post, Project, SkillCategory, Skill, CV
 from .serializers import TagSerializer, CategorySerializer, PostListSerializer, PostDetailSerializer, \
     ProjectListSerializer, ProjectSerializer, SkillCategorySerializer, SkillSerializer
 
@@ -68,6 +68,14 @@ class ProjectViewSet(viewsets.ModelViewSet):
             return ProjectListSerializer
         return ProjectSerializer
 
+class CvViewSet(viewsets.ModelViewSet):
+
+    permission_classes = [AllowAny]
+
+    def get_queryset(self):
+        return (
+            CV.objects.all()
+        )
 
 class SkillCategoryViewSet(viewsets.ModelViewSet):
 

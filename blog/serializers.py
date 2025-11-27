@@ -1,6 +1,6 @@
 from django.db import transaction
 from rest_framework import serializers
-from blog.models import Tag, Category, ProjectChallenge, Project, SkillCategory, Skill
+from blog.models import Tag, Category, ProjectChallenge, Project, SkillCategory, Skill, CV
 from .models import Post
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -160,6 +160,20 @@ class ProjectSerializer(serializers.ModelSerializer):
         read_only_fields = ("id", "created_at", "updated_at")
 
 
+class CvSerializer(serializers.ModelSerializer):
+    fileUrl = serializers.URLField(
+        source="file_url", allow_blank=True, required=False
+    )
+    class Meta:
+        model = CV
+        fields = (
+            "id",
+            "title",
+            "fileUrl",
+            'file',
+            "created_at",
+            "updated_at",
+        )
 
 
 
